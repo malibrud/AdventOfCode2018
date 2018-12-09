@@ -23,5 +23,21 @@ namespace UnitTests
             nums = new List<int>() { +7, +7, -2, -7, -4 };
             Assert.AreEqual(Day01Part2.compute(nums), 14);
         }
+
+        [TestMethod]
+        public void Day02Part1Test()
+        {
+            var ids = new List<string>()
+            {
+                "abcdef",
+                "bababc",
+                "abbcde",
+                "abcccd",
+                "aabcdd",
+                "abcdee",
+                "ababab"
+            };
+            Assert.AreEqual(Day02Part1.compute(ids), 12);
+        }
     }
 }

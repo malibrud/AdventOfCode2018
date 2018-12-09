@@ -12,7 +12,7 @@ namespace AdventOfCode2018
         static void Main(string[] args)
         {
             int day = 2;
-            switch()
+            switch(day)
             {
                 case 01:
                     day01();
@@ -39,6 +39,8 @@ namespace AdventOfCode2018
         {
             var nums = FileReader.readDay02("Input_Day02.txt");
 
+            int answerD02P1 = Day02Part1.compute(nums);
+            WriteLine($"Day 02, Part 1: {answerD02P1}");
         }
         
     }
