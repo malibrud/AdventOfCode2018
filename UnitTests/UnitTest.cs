@@ -39,5 +39,21 @@ namespace UnitTests
             };
             Assert.AreEqual(Day02Part1.compute(ids), 12);
         }
+
+        [TestMethod]
+        public void Day02Part2Test()
+        {
+            var ids = new List<string>()
+            {
+                "abcde",
+                "fghij",
+                "klmno",
+                "pqrst",
+                "fguij",
+                "axcye",
+                "wvxyz",
+            };
+            Assert.IsTrue(Day02Part2.compute(ids).Equals("fgij"));
+        }
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="Day01Part1.cs" />
     <Compile Include="Day01Part2.cs" />
     <Compile Include="Day02Part1.cs" />
+    <Compile Include="Day02Part2.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

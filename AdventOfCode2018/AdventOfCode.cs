@@ -41,6 +41,9 @@ namespace AdventOfCode2018
 
             int answerD02P1 = Day02Part1.compute(nums);
             WriteLine($"Day 02, Part 1: {answerD02P1}");
+
+            var answerD02P2 = Day02Part2.compute(nums);
+            WriteLine($"Day 02, Part 2: {answerD02P2}");
         }
         
     }
