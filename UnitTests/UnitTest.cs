@@ -55,5 +55,17 @@ namespace UnitTests
             };
             Assert.IsTrue(Day02Part2.compute(ids).Equals("fgij"));
         }
+        
+        [TestMethod]
+        public void Day03Part1Test()
+        {
+            var ids = new List<string>()
+            {
+                "#1 @ 1,3: 4x4",
+                "#2 @ 3,1: 4x4",
+                "#3 @ 5,5: 2x2",
+            };
+            Assert.AreEqual(Day03Part1.compute(ids), 4);
+        }
     }
 }
