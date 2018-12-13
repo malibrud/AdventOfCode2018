@@ -34,5 +34,19 @@ namespace AdventOfCode2018
             }
             return ids;
         }
+
+        internal static List<string> readDay03(string fileName)
+        {
+            string line;
+            var claims = new List<string>();
+            using (var reader = File.OpenText(fileName))
+            {
+                while ((line = reader.ReadLine()) != null)
+                {
+                    claims.Add(line);
+                }
+            }
+            return claims;
+        }
     }
 }
