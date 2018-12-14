@@ -53,11 +53,12 @@ namespace AdventOfCode2018
         {
             var claims = FileReader.readDay03("Input_Day03.txt");
 
-            int answerD03P1 = Day03Part1.computeClaims(claims);
+            var day3 = new Day03(claims);
+            int answerD03P1 = day3.computePart1();
             WriteLine($"Day 03, Part 1: {answerD03P1}");
 
-            //var answerD03P2 = Day03Part2.compute(claims);
-            //WriteLine($"Day 03, Part 2: {answerD03P2}");
+            int answerD03P2 = day3.computePart2();
+            WriteLine($"Day 03, Part 2: {answerD03P2}");
         }
     }
 }

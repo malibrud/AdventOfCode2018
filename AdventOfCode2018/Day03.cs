@@ -6,49 +6,74 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2018
 {
-    public class Day03Part1
+    public class Day03
     {
-        public static int computeClaims(List<string> claims)
+        Claim[] claimArr;
+        int N;
+        int H;
+        int W;
+        byte[,] fabric;
+
+        public Day03(List<string> claims)
         {
-            var claimArr = parseClaims(claims);
-            var N = claimArr.Length;
-            int H = getHeight(claimArr);
-            int W = getWidth(claimArr);
-            var fabric = new byte[W, H];
+            claimArr = parseClaims(claims);
+            N = claimArr.Length;
+            H = getHeight();
+            W = getWidth();
+            fabric = new byte[W, H];
             for (int i = 0; i < N; i++)
             {
                 tagClaim(claimArr[i]);
             }
-            return countMultipleClaims();
+        }
 
-            ////////////////////////////////////
-            void tagClaim(Claim c)
+        public int computePart1()
+        {
+            var count = 0;
+            for (int i = 0; i < W; i++)
             {
-                for (int i = c.x; i < c.x + c.w; i++)
+                for (int j = 0; j < H; j++)
                 {
-                    for (int j = c.y; j < c.y + c.h; j++)
-                    {
-                        fabric[i, j]++;
-                    }
+                    if (fabric[i, j] >= 2) count++;
                 }
             }
+            return count;
+        }
 
-            int countMultipleClaims()
+        public int computePart2()
+        {
+            for (int i = 0; i < N; i++)
             {
-                var count = 0;
-                for (int i = 0; i < W; i++)
+                if (isExclusiveClaim(claimArr[i])) return claimArr[i].id;
+            }
+            return 0;
+        }
+
+        private bool isExclusiveClaim(Claim c)
+        {
+            for (int i = c.x; i < c.x + c.w; i++)
+            {
+                for (int j = c.y; j < c.y + c.h; j++)
                 {
-                    for (int j = 0; j < H; j++)
-                    {
-                        if (fabric[i, j] >= 2) count++;
-                    }
+                    if (fabric[i, j] >= 2) return false;
                 }
-                return count;
+            }
+            return true;
+        }
+
+        void tagClaim(Claim c)
+        {
+            for (int i = c.x; i < c.x + c.w; i++)
+            {
+                for (int j = c.y; j < c.y + c.h; j++)
+                {
+                    fabric[i, j]++;
+                }
             }
         }
 
 
-        private static int getHeight(Claim[] claimArr)
+        private int getHeight()
         {
             int max = 0;
             for (int i = 0; i < claimArr.Length; i++)
@@ -59,7 +84,7 @@ namespace AdventOfCode2018
             return max + 1;
         }
 
-        private static int getWidth(Claim[] claimArr)
+        private int getWidth()
         {
             int max = 0;
             for (int i = 0; i < claimArr.Length; i++)
@@ -70,7 +95,7 @@ namespace AdventOfCode2018
             return max + 1;
         }
 
-        static Claim[] parseClaims(List<string> claims)
+        Claim[] parseClaims(List<string> claims)
         {
             var claimArr = new Claim[claims.Count];
             for (int i = 0; i < claimArr.Length; i++)
@@ -80,7 +105,7 @@ namespace AdventOfCode2018
             return claimArr;
         }
 
-        static private Claim processClaim(string v)
+        private Claim processClaim(string v)
         {
             var delims = "#@,:x ".ToCharArray();
             var claimParts = v.Split(delims, StringSplitOptions.RemoveEmptyEntries);

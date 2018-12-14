@@ -65,7 +65,9 @@ namespace UnitTests
                 "#2 @ 3,1: 4x4",
                 "#3 @ 5,5: 2x2",
             };
-            Assert.AreEqual(Day03Part1.computeClaims(ids), 4);
+            var day3 = new Day03(ids);
+            Assert.AreEqual(day3.computePart1(), 4);
+            Assert.AreEqual(day3.computePart2(), 3);
         }
     }
 }
