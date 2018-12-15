@@ -48,5 +48,19 @@ namespace AdventOfCode2018
             }
             return claims;
         }
+
+        internal static List<string> readAsciiLines(string fileName)
+        {
+            string line;
+            var lines = new List<string>();
+            using (var reader = File.OpenText(fileName))
+            {
+                while ((line = reader.ReadLine()) != null)
+                {
+                    lines.Add(line);
+                }
+            }
+            return lines;
+        }
     }
 }
