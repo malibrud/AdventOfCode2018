@@ -24,7 +24,25 @@ namespace AdventOfCode2018
         public int computePart1()
         {
             (int maxId, int maxTime) = getMaxTotalSleep();
-            var maxMin = guards[maxId].getMostFrequentNapTime();
+            (var maxMin, _) = guards[maxId].getMostFrequentNapTimeAndFrequency();
+            return maxId * maxMin;
+        }
+
+        public int computePart2()
+        {
+            int maxId = 0;
+            int maxFreq = 0;
+            int maxMin = 0;
+            foreach (var g in guards)
+            {
+                (var min, var freq) = g.Value.getMostFrequentNapTimeAndFrequency();
+                if (freq > maxFreq)
+                {
+                    maxFreq = freq;
+                    maxMin = min;
+                    maxId = g.Key;
+                }
+            }
             return maxId * maxMin;
         }
 
@@ -159,7 +177,7 @@ namespace AdventOfCode2018
             return time;
         }
 
-        public int getMostFrequentNapTime()
+        public (int min, int freq) getMostFrequentNapTimeAndFrequency()
         {
             var minutes = new int[60];
             foreach (var day in days)
@@ -173,7 +191,7 @@ namespace AdventOfCode2018
             }
             var max = minutes.Max();
             var idx = Array.IndexOf(minutes, max);
-            return idx;
+            return (idx, max);
         }
     }
 

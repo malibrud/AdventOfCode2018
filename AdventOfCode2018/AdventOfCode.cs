@@ -69,11 +69,8 @@ namespace AdventOfCode2018
             var records = FileReader.readAsciiLines("Input_Day04.txt");
 
             var day4 = new Day04(records);
-            int answerD04P1 = day4.computePart1();
-            WriteLine($"Day 03, Part 1: {answerD04P1}");
-
-            //int answerD04P2 = day4.computePart2();
-            //WriteLine($"Day 03, Part 2: {answerD04P2}");
+            WriteLine($"Day 04, Part 1: {day4.computePart1()}");
+            WriteLine($"Day 04, Part 2: {day4.computePart2()}");
         }
     }
 }
