@@ -97,5 +97,17 @@ namespace UnitTests
             Assert.AreEqual(day4.computePart1(), 240);
             Assert.AreEqual(day4.computePart2(), 4455);
         }
+
+        [TestMethod]
+        public void Day05Test()
+        {
+            var rawRecords = new List<string>()
+            {
+                "dabAcCaCBAcCcaDA",
+            };
+            var day = new Day05(rawRecords[0]);
+            Assert.AreEqual(day.computePart1(), 10);
+            Assert.AreEqual(day.computePart2(), 4);
+        }
     }
 }
