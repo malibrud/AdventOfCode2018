@@ -124,6 +124,7 @@ namespace UnitTests
             };
             var day = new Day06(rawRecords);
             Assert.AreEqual(day.computePart1(), 17);
+            Assert.AreEqual(day.computePart2(32), 16);
         }
     }
 }

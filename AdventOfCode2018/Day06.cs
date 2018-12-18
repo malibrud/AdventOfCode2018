@@ -35,6 +35,24 @@ namespace AdventOfCode2018
             return area;
         }
 
+        public int computePart2(int threshold)
+        {
+            int count = 0;
+            for (int x = xMin; x <= xMax; x++)
+            {
+                for (int y = yMin; y <= yMax; y++)
+                {
+                    var d = 0;
+                    for (int i = 0; i < N; i++)
+                    {
+                        d += dist((x, y), coords[i]);
+                    }
+                    if (d < threshold) count++;
+                }
+            }
+            return count;
+        }
+
         void labelGrid()
         {
             for (int x = xMin; x <= xMax; x++)
