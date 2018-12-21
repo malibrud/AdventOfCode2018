@@ -145,5 +145,13 @@ namespace UnitTests
             day = new Day07(rawRecords);
             Assert.AreEqual(day.computePart2(2, 0), 15);
         }
+
+        [TestMethod]
+        public void Day08Test()
+        {
+            var licenseFile = "2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2";
+            var day = new Day08(licenseFile);
+            Assert.AreEqual(day.computePart1(), 138);
+        }
     }
 }
