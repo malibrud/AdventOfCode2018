@@ -152,6 +152,7 @@ namespace UnitTests
             var licenseFile = "2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2";
             var day = new Day08(licenseFile);
             Assert.AreEqual(day.computePart1(), 138);
+            Assert.AreEqual(day.computePart2(), 66);
         }
     }
 }

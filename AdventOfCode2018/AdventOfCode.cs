@@ -119,6 +119,7 @@ namespace AdventOfCode2018
 
             var day = new Day08(instructions[0]);
             WriteLine($"Day 07, Part 1: {day.computePart1()}");
+            WriteLine($"Day 08, Part 2: {day.computePart2()}");
         }
     }
 }

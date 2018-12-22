@@ -27,6 +27,12 @@ namespace AdventOfCode2018
             return sum;
         }
 
+        public int computePart2()
+        {
+            var (idx, sum) = processNodeAtPart2(0);
+            return sum;
+        }
+
         (int idx, int sum) processNodeAt(int idx, int sum)
         {
             var nChild = numbers[idx++];
@@ -38,6 +44,35 @@ namespace AdventOfCode2018
             for (int i = 0; i < nMeta; i++)
             {
                 sum += numbers[idx++];
+            }
+            return (idx, sum);
+        }
+
+        (int idx, int sum) processNodeAtPart2(int idx)
+        {
+            var nChild = numbers[idx++];
+            var nMeta = numbers[idx++];
+            var sums = new int[nChild];
+            var sum = 0;
+            for (int i = 0; i < nChild; i++)
+            {
+                (idx, sums[i]) = processNodeAtPart2(idx);
+            }
+            if (nChild == 0)
+            {
+                for (int i = 0; i < nMeta; i++)
+                {
+                    sum += numbers[idx++];
+                }
+            }
+            else
+            {
+                for (int i = 0; i < nMeta; i++)
+                {
+                    var node = numbers[idx++];
+                    if (node == 0 || node > nChild) continue;
+                    sum += sums[node - 1];
+                }
             }
             return (idx, sum);
         }
