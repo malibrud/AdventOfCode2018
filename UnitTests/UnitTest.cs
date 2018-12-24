@@ -154,5 +154,31 @@ namespace UnitTests
             Assert.AreEqual(day.computePart1(), 138);
             Assert.AreEqual(day.computePart2(), 66);
         }
+        
+        [TestMethod]
+        public void Day09Test()
+        {
+            var games = new List<string>()
+            {
+                "9 players; last marble is worth 25 points",
+                "10 players; last marble is worth 1618 points",
+                "13 players; last marble is worth 7999 points",
+                "17 players; last marble is worth 1104 points",
+                "21 players; last marble is worth 6111 points",
+                "30 players; last marble is worth 5807 points",
+            };
+            var day = new Day09(games[0]);
+            Assert.AreEqual(day.compute(), 32);
+            day = new Day09(games[1]);
+            Assert.AreEqual(day.compute(), 8317);
+            day = new Day09(games[2]);
+            Assert.AreEqual(day.compute(), 146373);
+            day = new Day09(games[3]);
+            Assert.AreEqual(day.compute(), 2764);
+            day = new Day09(games[4]);
+            Assert.AreEqual(day.compute(), 54718);
+            day = new Day09(games[5]);
+            Assert.AreEqual(day.compute(), 37305);
+        }
     }
 }
