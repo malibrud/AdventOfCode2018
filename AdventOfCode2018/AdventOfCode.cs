@@ -11,7 +11,7 @@ namespace AdventOfCode2018
     {
         static void Main(string[] args)
         {
-            int day = 9;
+            int day = 10;
             switch(day)
             {
                 case 01:
@@ -40,6 +40,9 @@ namespace AdventOfCode2018
                     break;
                 case 09:
                     day09();
+                    break;
+                case 10:
+                    day10();
                     break;
             }
             ReadKey();
@@ -133,6 +136,16 @@ namespace AdventOfCode2018
             WriteLine($"Day 09, Part 1: {day.compute()}");
             day = new Day09(instructions[1]);
             WriteLine($"Day 09, Part 2: {day.compute()}");
+        }
+
+        static void day10()
+        {
+            var lights = FileReader.readAsciiLines("Input_Day10.txt");
+
+            var day = new Day10(lights);
+            WriteLine($"Day 10, Part 1: {day.computePart1()}");
+            day = new Day10(lights);
+            WriteLine($"Day 10, Part 2: {day.computePart2()}");
         }
     }
 }
