@@ -226,5 +226,15 @@ namespace UnitTests
             var t = day.computePart2();
             Assert.AreEqual(t, 3);
         }
+
+
+        [TestMethod]
+        public void Day11Test()
+        {
+            var serialNumber = "18";
+            var day = new Day11(serialNumber);
+            string grid = day.computePart1();
+            Assert.IsTrue(grid.Equals("33,45"));
+        }
     }
 }
