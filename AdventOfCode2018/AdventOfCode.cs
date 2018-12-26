@@ -157,6 +157,7 @@ namespace AdventOfCode2018
 
             var day = new Day11(serialNumber[0]);
             WriteLine($"Day 11, Part 1: {day.computePart1()}");
+            WriteLine($"Day 11, Part 2: {day.computePart2()}");
         }
     }
 }

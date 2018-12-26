@@ -235,6 +235,15 @@ namespace UnitTests
             var day = new Day11(serialNumber);
             string grid = day.computePart1();
             Assert.IsTrue(grid.Equals("33,45"));
+
+            // Part 2
+            grid = day.computePart2();
+            Assert.IsTrue(grid.Equals("90,269,16"));
+
+            serialNumber = "42";
+             day = new Day11(serialNumber);
+            grid = day.computePart2();
+            Assert.IsTrue(grid.Equals("232,251,12"));
         }
     }
 }
