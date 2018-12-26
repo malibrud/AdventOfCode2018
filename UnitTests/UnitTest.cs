@@ -245,5 +245,32 @@ namespace UnitTests
             grid = day.computePart2();
             Assert.IsTrue(grid.Equals("232,251,12"));
         }
+        
+        [TestMethod]
+        public void Day12Test()
+        {
+            var initialStateAndRules = new List<string>()
+            {
+                "initial state: #..#.#..##......###...###",
+                "",
+                "...## => #",
+                "..#.. => #",
+                ".#... => #",
+                ".#.#. => #",
+                ".#.## => #",
+                ".##.. => #",
+                ".#### => #",
+                "#.#.# => #",
+                "#.### => #",
+                "##.#. => #",
+                "##.## => #",
+                "###.. => #",
+                "###.# => #",
+                "####. => #",
+            };
+            var day = new Day12(initialStateAndRules);
+            var sum = day.computePart1(20);
+            Assert.AreEqual(325, sum);
+        }
     }
 }

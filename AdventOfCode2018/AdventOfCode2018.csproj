@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdventOfCode.cs" />
+    <Compile Include="Day12.cs" />
     <Compile Include="Day06.cs" />
     <Compile Include="Day05.cs" />
     <Compile Include="Day01Part1.cs" />
@@ -75,6 +76,7 @@
     <Content Include="Input_Day09.txt" />
     <Content Include="Input_Day10.txt" />
     <Content Include="Input_Day11.txt" />
+    <Content Include="Input_Day12.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
