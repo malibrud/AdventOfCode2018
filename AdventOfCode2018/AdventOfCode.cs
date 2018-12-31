@@ -169,6 +169,8 @@ namespace AdventOfCode2018
 
             var day = new Day12(input);
             WriteLine($"Day 12, Part 1: {day.computePart1(20)}");
+            day = new Day12(input);
+            WriteLine($"Day 12, Part 2: {day.computePart2(50_000_000_000L)}");
         }
     }
 }

@@ -17,6 +17,7 @@ namespace AdventOfCode2018
         int[] numericalState;
         int N;
         int L;
+        int nPad;
         public Day12(List<string> rawRecords)
         {
             getInitialState(rawRecords[0]);
@@ -27,7 +28,7 @@ namespace AdventOfCode2018
 
         public int computePart1(int gen)
         {
-            var nPad = gen * 2;
+            nPad = gen * 2;
             L = nPad + N + nPad;
             offset = nPad;
             state = new bool[L];
@@ -35,26 +36,87 @@ namespace AdventOfCode2018
             for (int i = 0; i < N; i++) state[i + offset] = initState[i];
             for (int g = 0; g < gen; g++)
             {
-                doGeneration();
+                doGeneration1();
                 printGeneration();
             }
             return sumState();
         }
+        
+        public long computePart2(long gen)
+        {
+            nPad = 4;
+            L = nPad + N + 100;
+            offset = nPad;
+            state = new bool[L];
+            numericalState = new int[L];
+            for (int i = 0; i < N; i++) state[i + offset] = initState[i];
+            for (long g = 0; g < 500; g++)
+            {
+                doGeneration2(g);
+            }
+            long genInc = 96; // determined empriically
 
-        void doGeneration()
+            return sumState() + 96L*(gen-500L);
+        }
+
+        void doGeneration1()
         {
             boolToNumericalState();
             applyRulesToNumericalState();
         }
 
-        void printGeneration()
+        void doGeneration2(long gen)
         {
+            boolToNumericalState();
+            applyRulesToNumericalState();
+            shiftState();
+            printGeneration(gen+1);
+        }
+
+        void shiftState()
+        {
+            int i;
+            for (i = 0; i < L; i++)
+            {
+                if (state[i]) break;
+            }
+            // This shifting algorithm assumes that the pots shift to the right from 
+            // generation to generation.
+            var shift = i - nPad;
+            if (shift > 0)
+            {
+                for (i = nPad; i < L - shift; i++)
+                {
+                    state[i] = state[shift + i];
+                }
+                for (i = L - shift; i < L; i++)
+                {
+                    state[i] = false;
+                }
+            }
+            else
+            {
+                for (i = L-1; i >= 0 - shift; i--)
+                {
+                    state[i] = state[shift + i];
+                }
+                for (i = 0; i < nPad; i++)
+                {
+                    state[i] = false;
+                }
+            }
+            offset -= shift;
+        }
+
+        void printGeneration(long gen = 0)
+        {
+            Write($"{gen,6}: ");
             for (int i = 0; i < L; i++)
             {
                 var c = state[i] ? '#' : '.';
                 Write(c);
             }
-            WriteLine();
+            WriteLine($": {sumState()}");
         }
 
         void boolToNumericalState()
