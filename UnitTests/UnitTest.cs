@@ -272,5 +272,36 @@ namespace UnitTests
             var sum = day.computePart1(20);
             Assert.AreEqual(325, sum);
         }
+
+        [TestMethod]
+        public void Day13Test()
+        {
+            var rawMap = new List<string>()
+            {
+                @"/->-\        ",
+                @"|   |  /----\",
+                @"| /-+--+-\  |",
+                @"| | |  | v  |",
+                @"\-+-/  \-+--/",
+                @"  \------/   ",
+            };
+            var day = new Day13(rawMap);
+            string coords = day.computePart1();
+            Assert.IsTrue(coords.Equals("7,3"));
+
+            rawMap = new List<string>()
+            {
+                @"/>-<\  ",
+                @"|   |  ",
+                @"| /<+-\",
+                @"| | | v",
+                @"\>+</ |",
+                @"  |   ^",
+                @"  \<->/",
+            };
+            day = new Day13(rawMap);
+            coords = day.computePart2();
+            Assert.IsTrue(coords.Equals("6,4"));
+        }
     }
 }
