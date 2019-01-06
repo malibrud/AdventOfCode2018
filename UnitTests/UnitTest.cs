@@ -303,5 +303,29 @@ namespace UnitTests
             coords = day.computePart2();
             Assert.IsTrue(coords.Equals("6,4"));
         }
+
+        [TestMethod]
+        public void Day14Test()
+        {
+            var day = new Day14();
+            string tenRecipies = day.computePart1(9);
+            Assert.IsTrue(tenRecipies.Equals("5158916779"));
+            tenRecipies = day.computePart1(5);
+            Assert.IsTrue(tenRecipies.Equals("0124515891"));
+            tenRecipies = day.computePart1(18);
+            Assert.IsTrue(tenRecipies.Equals("9251071085"));
+            tenRecipies = day.computePart1(2018);
+            Assert.IsTrue(tenRecipies.Equals("5941429882"));
+
+            var postion = day.computePart2("51589");
+            Assert.IsTrue(postion.Equals("9"));
+            postion = day.computePart2("01245");
+            Assert.IsTrue(postion.Equals("5"));
+            postion = day.computePart2("92510");
+            Assert.IsTrue(postion.Equals("18"));
+            postion = day.computePart2("59414");
+            Assert.IsTrue(postion.Equals("2018"));
+
+        }
     }
 }

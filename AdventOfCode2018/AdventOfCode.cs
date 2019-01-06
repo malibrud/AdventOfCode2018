@@ -11,7 +11,7 @@ namespace AdventOfCode2018
     {
         static void Main(string[] args)
         {
-            int day = 13;
+            int day = 14;
             switch(day)
             {
                 case 01:
@@ -52,6 +52,9 @@ namespace AdventOfCode2018
                     break;
                 case 13:
                     day13();
+                    break;
+                case 14:
+                    day14();
                     break;
             }
             ReadKey();
@@ -184,6 +187,15 @@ namespace AdventOfCode2018
             WriteLine($"Day 13, Part 1: {day.computePart1()}");
             day = new Day13(input);
             WriteLine($"Day 13, Part 2: {day.computePart2()}");
+        }
+
+        static void day14()
+        {
+            var input = FileReader.readAsciiLines("Input_Day14.txt");
+            var nBefore = Int32.Parse(input[0]);
+            var day = new Day14();
+            WriteLine($"Day 14, Part 1: {day.computePart1(nBefore)}");
+            WriteLine($"Day 14, Part 2: {day.computePart2("760221")}");
         }
     }
 }
